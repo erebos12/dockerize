@@ -67,7 +67,7 @@ func signalProcessWithTimeout(process *exec.Cmd, sig os.Signal) {
 	select {
 	case <-done:
 		return
-	case <-time.After(10 * time.Second):
+	case <-time.After(1 * time.Second):
 		log.Println("Killing command due to timeout.")
 		process.Process.Kill()
 	}
